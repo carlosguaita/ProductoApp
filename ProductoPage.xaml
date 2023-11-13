@@ -21,8 +21,37 @@
         <Button
             Text="Nuevo Producto"
             FontSize="20"
-            HorizontalOptions="Fill"/>
-    
+            HorizontalOptions="Fill"
+            Clicked="OnClickNuevoProducto"/>
+
+        <ListView x:Name="listaProductos"
+                  RowHeight="80">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="dotnet_bot.png"
+                                   HeightRequest="50"
+                                   WidthRequest="100"/>
+                            <StackLayout Orientation="Vertical">
+                                <Label
+                                    Text="{Binding Nombre}"
+                                    VerticalOptions="Start"
+                                    FontSize="20"/>
+                                <Label
+                                    Text="{Binding cantidad}"
+                                    VerticalOptions="End"
+                                    FontSize="20"/>
+                            </StackLayout>
+                        </StackLayout>
+                        
+                    </ViewCell>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            
+            
+        </ListView>
        
     </VerticalStackLayout>
 </ContentPage>
