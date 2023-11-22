@@ -1,4 +1,5 @@
 ﻿using ProductoApp.Models;
+using ProductoApp.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace ProductoApp.Utils
 {
     class Utils
     {
+
+        static public APIService apiservice = new APIService();
 
         static public List<Producto> ListaProductos = new List<Producto>()
         {
