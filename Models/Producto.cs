@@ -14,5 +14,7 @@ namespace ProductoApp.Models
         public string Descripcion { get; set; }
 
         public int cantidad { get; set; }
+
+        public string urlImage { get; set; }
     }
 }

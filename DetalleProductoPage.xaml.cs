@@ -27,13 +27,14 @@ public partial class DetalleProductoPage : ContentPage
 
     private async void ClickEliminarProducto(object sender, EventArgs e)
     {
-        Utils.Utils.ListaProductos.Remove(_producto);
+        //Utils.Utils.ListaProductos.Remove(_producto);
+        await _APIService.DeleteProducto(_producto.IdProducto);
         await Navigation.PopAsync();
     }
 
     private async void ClickEditarProducto(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new NuevoProductoPage()
+        await Navigation.PushAsync(new NuevoProductoPage(_APIService)
         {
             BindingContext = _producto,
         });

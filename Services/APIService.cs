@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using ProductoApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -18,7 +19,7 @@ namespace ProductoApp.Services
         public APIService()
         {
 
-            _baseUrl = "http://10.0.2.2:5129/";
+            _baseUrl = "https://apiproductos20231127163857.azurewebsites.net";
             _httpClient = new HttpClient();
             _httpClient.BaseAddress = new Uri(_baseUrl);
         }
@@ -63,6 +64,8 @@ namespace ProductoApp.Services
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PostAsync("/api/Producto/", content);
+            Debug.WriteLine(content);
+            Debug.WriteLine(response);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
@@ -76,6 +79,8 @@ namespace ProductoApp.Services
         {
             var content = new StringContent(JsonConvert.SerializeObject(producto), Encoding.UTF8, "application/json");
             var response = await _httpClient.PutAsync($"/api/Producto/{IdProducto}", content);
+            Debug.WriteLine(content);
+            Debug.WriteLine(response);
             if (response.IsSuccessStatusCode)
             {
                 var json_response = await response.Content.ReadAsStringAsync();
