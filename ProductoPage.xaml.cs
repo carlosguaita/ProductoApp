@@ -23,6 +23,8 @@ public partial class ProductoPage : ContentPage
     protected async override void OnAppearing()
     {
         base.OnAppearing();
+        string username = Preferences.Get("username", "0");
+        Username.Text = username;
         List<Producto> ListaProducts = await _APIService.GetProductos();
         products = new ObservableCollection<Producto>(ListaProducts);
         listaProductos.ItemsSource = products;

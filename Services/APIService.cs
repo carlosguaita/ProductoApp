@@ -89,5 +89,24 @@ namespace ProductoApp.Services
             }
             return new Producto();
         }
+
+        public Usuario PostUsuario(Usuario usuario)
+        {
+            if (usuario != null){
+                if (usuario.Username.Equals("Carlos") && usuario.Password.Equals("11234"))
+                {
+                    return new Usuario
+                    {
+                        IdUsuario=100,
+                        Username=usuario.Username,
+                        Password="",
+                    };
+                }
+            
+            }
+
+            return null;
+        }
+
     }
 }

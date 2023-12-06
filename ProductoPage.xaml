@@ -12,6 +12,7 @@
                 WidthRequest="100"
                 />
             <Label 
+                x:Name="Username"
                 Text="Productos"
                 FontSize="30"
                 TextColor="White"
