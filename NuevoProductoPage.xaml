@@ -4,6 +4,13 @@
              x:Class="ProductoApp.NuevoProductoPage"
              Title="NuevoProductoPage">
     <VerticalStackLayout>
+        <Image
+                Source="dotnet_bot.png"
+                HeightRequest="200"
+                WidthRequest="200"
+                />
+        <Button Text="Cámara"
+                Clicked="OnClickTomarFoto"/>
         <TableView>
             <TableRoot>
                 <TableSection Title="Ingrese los datos para un nuevo producto">

@@ -11,6 +11,7 @@ public partial class NuevoProductoPage : ContentPage
     private Producto _producto;
     private readonly APIService _APIService;
 
+
     public NuevoProductoPage(APIService apiservice)
 	{
 		InitializeComponent();
@@ -58,5 +59,20 @@ public partial class NuevoProductoPage : ContentPage
         await Navigation.PopAsync();
         
     }
-
+    private async void OnClickTomarFoto(object sender, EventArgs e)
+    {
+        if (MediaPicker.Default.IsCaptureSupported)
+        {
+            FileResult photo = await MediaPicker.Default.CapturePhotoAsync();
+            if (photo != null)
+            {
+                string localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
+                using Stream source = await photo.OpenReadAsync();
+                using FileStream localFile = File.OpenWrite(localFilePath);
+                Console.WriteLine(localFilePath);
+                await source.CopyToAsync(localFile);
+            }
+        }
+            
+    }
 }
